@@ -5,16 +5,83 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Métodos Array en JavaScript</title>
+    <title>nuevo codigo</title>
 </head>
 
 <body>
     <script>
+        const clearDivs = (...divs) => divs.forEach(div => div.textContent = '');
         const createElement = tag => document.createElement(tag);
-        const atArrayExample = () => { }
-        const concatArrayExample = () => { }
-        const copyWithinArrayExample = () => { }
-        const entriesArrayExample = () => { }
+        const setTextContent = (node, textContent) => {
+            node.textContent = textContent;
+            return node;
+        };
+        const codeBaseCar = [
+            {
+                Marca: 'Alfa Romero',
+                Modelo: 'Stelvio',
+                Precio: '690000'
+            },
+            {
+                Marca: 'Cadillac',
+                Modelo: 'ATS',
+                Precio: '929500'
+            },
+            {
+                Marca: 'Audi',
+                Modelo: 'A1',
+                Precio: '534900'
+            },
+            {
+                Marca: 'Chevrolet',
+                Modelo: 'Spark',
+                Precio: '230000'
+            },
+
+        ]
+        const codeConcat = [{ Marca: 'Bentley' }, { Marca: 'Ford' }, { Marca: 'Peugeot' }]
+
+        const atArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, leftDivSecond, divDescriptions) => {
+            const copyBaseCar = [...codeBaseCar]
+            clearDivs(leftDiv, rightDiv, leftDivSecond, divDescriptions);
+            divDescriptions.appendChild(contenido)
+            leftDiv.textContent = JSON.stringify(codeBaseCar);
+            rightDiv.textContent = JSON.stringify(copyBaseCar.at(2));
+        }
+
+        const concatArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, leftDivSecond, divDescriptions) => {
+            clearDivs(leftDiv, rightDiv, leftDivSecond, divDescriptions);
+            const concatArray = codeBaseCar.concat(codeConcat)
+            divLeftSecond.textContent = JSON.stringify(codeConcat)
+            leftDiv.textContent = JSON.stringify(codeBaseCar);
+            rightDiv.textContent = JSON.stringify(concatArray);
+            divDescriptions.appendChild(contenido)
+        }
+
+        const copyWithinArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, leftDivSecond, divDescriptions) => {
+            clearDivs(leftDiv, rightDiv, leftDivSecond, divDescriptions);
+            const copyBaseCar = [...codeBaseCar]
+            leftDiv.textContent = JSON.stringify(codeBaseCar);
+            rightDiv.textContent = JSON.stringify(copyBaseCar.copyWithin(0,1));
+            divDescriptions.appendChild(contenido)
+
+        }
+
+        const entriesArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, leftDivSecond, divDescriptions) => {
+
+            clearDivs(leftDiv, rightDiv, leftDivSecond, divDescriptions);
+            leftDiv.textContent = JSON.stringify(codeBaseCar);
+            var iterator = codeBaseCar.entries();
+
+            for (let e of iterator) {
+
+                rightDiv.textContent += JSON.stringify(e);
+            }
+            divDescriptions.appendChild(contenido)
+
+        }
+
+
         const everyArrayExample = () => { }
         const fillArrayExample = () => { }
         const filterArrayExample = () => { }
@@ -53,7 +120,13 @@
             codeBaseLeft: {
                 type: 'div',
             },
+            codeLeftSecond: {
+                type: 'div',
+            },
             baseTransformationRight: {
+                type: 'div',
+            },
+            contentDescription: {
                 type: 'div',
             },
             contentContainer: {
@@ -62,22 +135,26 @@
                     {
                         type: 'button',
                         textContent: 'at',
+                        description: 'El método at permite mostrar el contenido de la posicion que solicitamos de un array. Por ejemplo: si en el ejemplo del array de coches queremos saber que contiene la posicion 3, haremos lo siguiente carros.at(2), recordar que el conteo inicia desde 0',
                         showCode: atArrayExample,
 
                     },
                     {
                         type: 'button',
                         textContent: 'concat',
+                        description: 'Es conocido por ser un arreglo inmutable esto quiere decir que el original no se ha modificado, El Concat permite unir o concatenar dos arreglos, en el ejemplo de arriba se uniran las dos primeros arreglos con el siguiente comando arreglo1.concat(arreglo2)',
                         showCode: concatArrayExample,
                     },
                     {
                         type: 'button',
                         textContent: 'copyWithin',
+                        description: 'El método copyWithin nos permite hacer una copia y mostrarla en el mismo array, sin afectar la longitud original del array. El método acepta 3 parametros, el primer parametro nos indica la posición donde se "pegara" o se insertara el elemento copiado, segundo parametro indica el elemento que sera copiado y el ultimo parametro es la posición de hasta donde se copiaran los elementos. Por ejemplo si queremos copiar lo que tenemos en la posición 2 y pegarlo en la 1 (recordar que el conteno inica desde 0), seria array.copyWithin(0,1). Nota: si en el tercer parametro no anotamos nada por default toma la longitud del arreglo para hacer la copia ',
                         showCode: copyWithinArrayExample,
                     },
                     {
                         type: 'button',
                         textContent: 'entries',
+                        description: 'El método entries nos retorna un nuevo objeto con los valores del array MAS la posición',
                         showCode: entriesArrayExample,
                     },
                     {
@@ -248,48 +325,89 @@
 
                 ]
             }
+
         }
 
-        const createButtonsInContainer = (sectionsButton, descContent) => {
+        const withDescription = (node, text) => {
+            const spanElement = createElement('span');
+            spanElement.textContent = text;
+            node.appendChild(spanElement)
+            return node;
+        }
+
+        const addEventListenerToNode = (structureButton, handler, left, right, buttonsDiv, leftDivSecond, divDescriptions) => {
+            structureButton.nodo.addEventListener('click', (e) => {
+                handler(e, left, right, buttonsDiv, structureButton.message, leftDivSecond, divDescriptions);
+            });
+            return structureButton.nodo;
+        }
+
+        const createButtonsInContainer = (sectionsButton, buttonsDiv, leftDiv, rightDiv, leftDivSecond, divDescriptions) => {
             sectionsButton.forEach((structure, index) => {
                 structure.nodo = createElement(structure.type)
-                const { nodo, textContent } = structure
-                nodo.textContent = textContent
+                const { nodo, textContent, description, showCode } = structure
                 nodo.style.color = '#e7e7e7';
                 nodo.style.background = '#83939a';
                 nodo.style.padding = "10px";
                 nodo.style.border = 'none'
                 nodo.style.width = '88px'
                 nodo.style.margin = '5px'
-                descContent.appendChild(nodo);
+                const containerForData = createElement('div');
+                structure.message = withDescription(containerForData, description)
+                setTextContent(addEventListenerToNode(structure, showCode, leftDiv, rightDiv, buttonsDiv, leftDivSecond, divDescriptions), `${textContent} `);
+                buttonsDiv.appendChild(nodo);
             });
-            return descContent
+            return buttonsDiv
         }
 
-        //___________________________________________________________________________________//
         let leftDiv
+        let divLeftSecond
         let rightDiv
-        let descriptionDiv
+        let buttonsDiv
+        let divDescriptions
 
         for (let container in estructura) {
             estructura[container].nodo = createElement(estructura[container].type)
 
-            const { nodo } = estructura[container]
+            const { nodo, sections = [] } = estructura[container]
             if (container === 'codeBaseLeft') {
                 leftDiv = nodo
+                nodo.style.color = 'rgb(109 136 197)'
+                nodo.style.border = '4px solid rgb(191 191 193)'
+                nodo.style.padding = '4%'
+            }
+            if (container === 'codeLeftSecond') {
+                divLeftSecond = nodo
+                nodo.style.color = 'rgb(109 136 197)'
+                nodo.style.border = '2px solid rgb(191 191 193)'
+                nodo.style.textAlign = 'center'
+
             }
             if (container === 'baseTransformationRight') {
                 rightDiv = nodo
+                nodo.style.color = 'rgb(189 118 15)'
+                nodo.style.border = '4px solid rgb(191 191 193)'
+                nodo.style.padding = '4%'
+            }
+            if (container === 'contentDescription') {
+                divDescriptions = nodo
+                nodo.style.color = 'rgb(109 136 197)'
+                nodo.style.fontFamily = 'cursive'
+                nodo.style.border = '4px solid rgb(191 191 193)'
+                nodo.style.padding = '4%'
+
             }
             if (container === 'contentContainer') {
-                descriptionDiv = nodo
-                const { sections = [] } = estructura[container]
-                console.log(sections)
-                createButtonsInContainer(sections, descriptionDiv)
+                buttonsDiv = nodo
+                nodo.style.border = '4px solid rgb(191 191 193)'
+                nodo.style.padding = '4%'
+                createButtonsInContainer(sections, buttonsDiv, leftDiv, rightDiv, divLeftSecond, divDescriptions)
+
             }
+            nodo.style.fontFamily = 'monospace'
+            nodo.style.fontSize = '19px'
             document.body.appendChild(estructura[container].nodo);
         }
-//..........................................................................................//
 
     </script>
 
