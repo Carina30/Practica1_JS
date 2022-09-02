@@ -44,26 +44,26 @@
         const codeConcat = [{ Marca: 'Bentley' }, { Marca: 'Ford' }, { Marca: 'Peugeot' }]
         const copyBaseCar = [...codeBaseCar]
 
-        const atArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido,  divDescriptions) => {
-            clearDivs(leftDiv, rightDiv,  divDescriptions);
+        const atArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            clearDivs(leftDiv, rightDiv, divDescriptions);
             divDescriptions.appendChild(contenido)
             leftDiv.textContent = JSON.stringify(codeBaseCar);
             rightDiv.textContent = JSON.stringify(copyBaseCar.at(2));
         }
-        const concatArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido,  divDescriptions) => {
-            clearDivs(leftDiv, rightDiv,  divDescriptions);
+        const concatArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            clearDivs(leftDiv, rightDiv, divDescriptions);
             leftDiv.textContent = `El siguiente array ${JSON.stringify(codeBaseCar)} lo vamos a concatenar con este otro array${JSON.stringify(codeConcat)} y el resultado es:`;
             rightDiv.textContent = JSON.stringify(codeBaseCar.concat(codeConcat));
             divDescriptions.appendChild(contenido)
         }
-        const copyWithinArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido,  divDescriptions) => {
-            clearDivs(leftDiv, rightDiv,  divDescriptions);
+        const copyWithinArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            clearDivs(leftDiv, rightDiv, divDescriptions);
             leftDiv.textContent = JSON.stringify(codeBaseCar);
             rightDiv.textContent = JSON.stringify(copyBaseCar.copyWithin(0, 1));
             divDescriptions.appendChild(contenido)
         }
-        const entriesArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido,  divDescriptions) => {
-            clearDivs(leftDiv, rightDiv,  divDescriptions);
+        const entriesArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            clearDivs(leftDiv, rightDiv, divDescriptions);
             leftDiv.textContent = JSON.stringify(codeBaseCar);
             var iterator = codeBaseCar.entries();
             for (let e of iterator) {
@@ -71,54 +71,68 @@
             }
             divDescriptions.appendChild(contenido)
         }
-        const everyArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido,  divDescriptions) => {
-            clearDivs(leftDiv, rightDiv,  divDescriptions);
+        const everyArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            clearDivs(leftDiv, rightDiv, divDescriptions);
             leftDiv.textContent = JSON.stringify(codeBaseCar);
             rightDiv.textContent = codeBaseCar.every(elemento => elemento.Precio < 600000)
             divDescriptions.appendChild(contenido)
         }
-        const fillArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido,  divDescriptions) => {
-            clearDivs(leftDiv, rightDiv,  divDescriptions);
+        const fillArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            clearDivs(leftDiv, rightDiv, divDescriptions);
             leftDiv.textContent = JSON.stringify(codeBaseCar);
             rightDiv.textContent = JSON.stringify(copyBaseCar.fill({ Marca: 'Chevrolet', Modelo: 'Onix', Precio: '130000' }, 2, 4))
             divDescriptions.appendChild(contenido)
         }
-        const filterArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido,  divDescriptions) => {
-            clearDivs(leftDiv, rightDiv,  divDescriptions);
+        const filterArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            clearDivs(leftDiv, rightDiv, divDescriptions);
             leftDiv.textContent = JSON.stringify(codeBaseCar);
             rightDiv.textContent = JSON.stringify(copyBaseCar.filter(car => car.Precio > 600000))
             divDescriptions.appendChild(contenido)
         }
-        const findArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido,  divDescriptions) => {
-            clearDivs(leftDiv, rightDiv,  divDescriptions);
+        const findArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            clearDivs(leftDiv, rightDiv, divDescriptions);
             leftDiv.textContent = JSON.stringify(codeBaseCar);
             rightDiv.textContent = JSON.stringify(copyBaseCar.find(car => car.Precio < 600000))
             divDescriptions.appendChild(contenido)
 
         }
-        const findIndexArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido,  divDescriptions) => {
-            clearDivs(leftDiv, rightDiv,  divDescriptions);
+        const findIndexArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            clearDivs(leftDiv, rightDiv, divDescriptions);
             leftDiv.textContent = JSON.stringify(codeBaseCar);
             rightDiv.textContent = JSON.stringify(copyBaseCar.findIndex(car => car.Precio < 600000))
             divDescriptions.appendChild(contenido)
 
         }
-        const findLastArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido,  divDescriptions) => {
-            clearDivs(leftDiv, rightDiv,  divDescriptions);
+        const findLastArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            clearDivs(leftDiv, rightDiv, divDescriptions);
             leftDiv.textContent = JSON.stringify(codeBaseCar);
             rightDiv.textContent = JSON.stringify(copyBaseCar.findLast(car => car.Precio < 600000))
             divDescriptions.appendChild(contenido)
-         }
-        const findLastIndexArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido,  divDescriptions) => {
-            clearDivs(leftDiv, rightDiv,  divDescriptions);
+        }
+        const findLastIndexArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            clearDivs(leftDiv, rightDiv, divDescriptions);
             leftDiv.textContent = JSON.stringify(codeBaseCar);
             rightDiv.textContent = JSON.stringify(copyBaseCar.findLastIndex(car => car.Precio < 600000))
             divDescriptions.appendChild(contenido)
         }
-  
-        const flatArrayExample = () => { }
-        const flatMapArrayExample = () => { }
-        const forEachArrayExample = () => { }
+
+        const flatArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            clearDivs(leftDiv, rightDiv, divDescriptions);
+            divDescriptions.appendChild(contenido)
+        }
+        const flatMapArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            clearDivs(leftDiv, rightDiv, divDescriptions);
+            leftDiv.textContent = JSON.stringify(codeBaseCar);
+            rightDiv.textContent = JSON.stringify(copyBaseCar.flatMap(elemento => [[elemento.Marca, elemento.Modelo, elemento.Precio - (elemento.Precio * .50)]]))
+            divDescriptions.appendChild(contenido)
+        }
+        const forEachArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            clearDivs(leftDiv, rightDiv, divDescriptions);
+            leftDiv.textContent = JSON.stringify(codeBaseCar);
+            copyBaseCar.forEach(elemento => rightDiv.innerHTML += `El ${elemento.Marca} ${elemento.Modelo} el precio es de ${elemento.Precio} y con el descuento del 50% por el BUEN FIN es ${elemento.Precio - (elemento.Precio * .50)} <br> `)
+            divDescriptions.appendChild(contenido)
+        }
+
         const fromArrayExample = () => { }
         const includesArrayExample = () => { }
         const indexOfArrayExample = () => { }
@@ -220,12 +234,13 @@
                     {//findLastIndex
                         type: 'button',
                         textContent: 'findLastIndex',
-                        description: "Este método actua igual que el findLast, pero en vez de mostrar el valor, ahora muestra el index o posición de donde se encuenta el valor que cumple la condición, usando el ejemplo de findLast ahora usaremos <strong>findLastIndex</strong> <br><em>Nota: El conteo inica desde 0. </em> <br><br>El código quedaria de la siguiente manera: <strong>copyBaseCar.findLastIndex(car => car.Precio < 600000)</strong>", 
+                        description: "Este método actua igual que el findLast, pero en vez de mostrar el valor, ahora muestra el index o posición de donde se encuenta el valor que cumple la condición, usando el ejemplo de findLast ahora usaremos <strong>findLastIndex</strong> <br><em>Nota: El conteo inica desde 0. </em> <br><br>El código quedaria de la siguiente manera: <strong>copyBaseCar.findLastIndex(car => car.Precio < 600000)</strong>",
                         showCode: findLastIndexArrayExample,
                     },
                     {
                         type: 'button',
                         textContent: 'flat',
+                        description: '...',
                         showCode: flatArrayExample,
                     },
                     {
@@ -233,9 +248,10 @@
                         textContent: 'flatMap',
                         showCode: flatMapArrayExample,
                     },
-                    {
+                    {//forEach
                         type: 'button',
                         textContent: 'forEach',
+                        description: '<strong>forEach: </strong> recorre cada elemento del array, y podemos realizar una operación o una tarea para cada elemento, por ejemplo en el array de autos, vamos aplicar el 50% de descuento al precio, el codigo quedaria de la siguiente manera <br><br> <strong>copyBaseCar.forEach(elemento=>  rightDiv.innerHTML += El ${elemento.Marca} ${elemento.Modelo} el precio es de ${elemento.Precio} y con el descuento del 50% por el BUEN FIN es ${elemento.Precio-(elemento.Precio*.50)}</strong>',
                         showCode: forEachArrayExample,
                     },
                     {
@@ -366,14 +382,14 @@
             return node;
         }
 
-        const addEventListenerToNode = (structureButton, handler, left, right, buttonsDiv,  divDescriptions) => {
+        const addEventListenerToNode = (structureButton, handler, left, right, buttonsDiv, divDescriptions) => {
             structureButton.nodo.addEventListener('click', (e) => {
-                handler(e, left, right, buttonsDiv, structureButton.message,  divDescriptions);
+                handler(e, left, right, buttonsDiv, structureButton.message, divDescriptions);
             });
             return structureButton.nodo;
         }
 
-        const createButtonsInContainer = (sectionsButton, buttonsDiv, leftDiv, rightDiv,  divDescriptions) => {
+        const createButtonsInContainer = (sectionsButton, buttonsDiv, leftDiv, rightDiv, divDescriptions) => {
             sectionsButton.forEach((structure, index) => {
                 structure.nodo = createElement(structure.type)
                 const { nodo, textContent, description, showCode } = structure
@@ -432,9 +448,5 @@
         }
 
     </script>
-
-
-
 </body>
-
 </html>
