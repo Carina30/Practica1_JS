@@ -10,131 +10,147 @@
 
 <body>
     <script>
-        const clearDivs = (...divs) => divs.forEach(div => div.textContent = '');
-        const createElement = tag => document.createElement(tag);
+        const clearDivs = (...divs) => divs.forEach(div => div.textContent = '')
+        const createElement = tag => document.createElement(tag)
         const setTextContent = (node, textContent) => {
-            node.textContent = textContent;
-            return node;
-        };
+            node.textContent = textContent
+            return node
+        }
 
 
         const codeBaseCar = [
             {
-                Marca: 'Alfa Romero',
-                Modelo: 'Stelvio',
-                Precio: '690000'
+                marca: 'Alfa Romero',
+                modelo: 'Stelvio',
+                precio: '690000'
             },
             {
-                Marca: 'Cadillac',
-                Modelo: 'ATS',
-                Precio: '929500'
+                marca: 'Cadillac',
+                modelo: 'ATS',
+                precio: '929500'
             },
             {
-                Marca: 'Audi',
-                Modelo: 'A1',
-                Precio: '534900'
+                marca: 'Audi',
+                modelo: 'A1',
+                precio: '534900'
             },
             {
-                Marca: 'Chevrolet',
-                Modelo: 'Spark',
-                Precio: '230000'
+                marca: 'Chevrolet',
+                modelo: 'Spark',
+                precio: '230000'
             },
 
         ]
-        const codeConcat = [{ Marca: 'Bentley' }, { Marca: 'Ford' }, { Marca: 'Peugeot' }]
+        const codeConcat = [{ marca: 'Bentley' }, { marca: 'Ford' }, { marca: 'Peugeot' }]
         const copyBaseCar = [...codeBaseCar]
 
         const atArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
-            clearDivs(leftDiv, rightDiv, divDescriptions);
+            clearDivs(leftDiv, rightDiv, divDescriptions)
             divDescriptions.appendChild(contenido)
-            leftDiv.textContent = JSON.stringify(codeBaseCar);
-            rightDiv.textContent = JSON.stringify(copyBaseCar.at(2));
+            leftDiv.textContent = JSON.stringify(codeBaseCar)
+            rightDiv.textContent = JSON.stringify(copyBaseCar.at(2))
         }
         const concatArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
-            clearDivs(leftDiv, rightDiv, divDescriptions);
-            leftDiv.textContent = `El siguiente array ${JSON.stringify(codeBaseCar)} lo vamos a concatenar con este otro array${JSON.stringify(codeConcat)} y el resultado es:`;
-            rightDiv.textContent = JSON.stringify(codeBaseCar.concat(codeConcat));
+            clearDivs(leftDiv, rightDiv, divDescriptions)
+            leftDiv.textContent = `El siguiente array ${JSON.stringify(codeBaseCar)} lo vamos a concatenar con este otro array${JSON.stringify(codeConcat)} y el resultado es:`
+            rightDiv.textContent = JSON.stringify(codeBaseCar.concat(codeConcat))
             divDescriptions.appendChild(contenido)
         }
         const copyWithinArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
-            clearDivs(leftDiv, rightDiv, divDescriptions);
-            leftDiv.textContent = JSON.stringify(codeBaseCar);
-            rightDiv.textContent = JSON.stringify(copyBaseCar.copyWithin(0, 1));
+            clearDivs(leftDiv, rightDiv, divDescriptions)
+            leftDiv.textContent = JSON.stringify(codeBaseCar)
+            rightDiv.textContent = JSON.stringify(copyBaseCar.copyWithin(0, 1))
             divDescriptions.appendChild(contenido)
         }
         const entriesArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
-            clearDivs(leftDiv, rightDiv, divDescriptions);
-            leftDiv.textContent = JSON.stringify(codeBaseCar);
-            var iterator = codeBaseCar.entries();
+            clearDivs(leftDiv, rightDiv, divDescriptions)
+            leftDiv.textContent = JSON.stringify(codeBaseCar)
+            var iterator = codeBaseCar.entries()
             for (let e of iterator) {
-                rightDiv.textContent += JSON.stringify(e);
+                rightDiv.textContent += JSON.stringify(e)
             }
             divDescriptions.appendChild(contenido)
         }
         const everyArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
-            clearDivs(leftDiv, rightDiv, divDescriptions);
-            leftDiv.textContent = JSON.stringify(codeBaseCar);
-            rightDiv.textContent = codeBaseCar.every(elemento => elemento.Precio < 600000)
+            clearDivs(leftDiv, rightDiv, divDescriptions)
+            leftDiv.textContent = JSON.stringify(codeBaseCar)
+            rightDiv.textContent = codeBaseCar.every(elemento => elemento.precio < 600000)
             divDescriptions.appendChild(contenido)
         }
         const fillArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
-            clearDivs(leftDiv, rightDiv, divDescriptions);
-            leftDiv.textContent = JSON.stringify(codeBaseCar);
-            rightDiv.textContent = JSON.stringify(copyBaseCar.fill({ Marca: 'Chevrolet', Modelo: 'Onix', Precio: '130000' }, 2, 4))
+            clearDivs(leftDiv, rightDiv, divDescriptions)
+            leftDiv.textContent = JSON.stringify(codeBaseCar)
+            rightDiv.textContent = JSON.stringify(copyBaseCar.fill({ marca: 'Chevrolet', modelo: 'Onix', precio: '130000' }, 2, 4))
             divDescriptions.appendChild(contenido)
         }
         const filterArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
-            clearDivs(leftDiv, rightDiv, divDescriptions);
-            leftDiv.textContent = JSON.stringify(codeBaseCar);
-            rightDiv.textContent = JSON.stringify(copyBaseCar.filter(car => car.Precio > 600000))
+            clearDivs(leftDiv, rightDiv, divDescriptions)
+            leftDiv.textContent = JSON.stringify(codeBaseCar)
+            rightDiv.textContent = JSON.stringify(copyBaseCar.filter(car => car.precio > 600000))
             divDescriptions.appendChild(contenido)
         }
         const findArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
-            clearDivs(leftDiv, rightDiv, divDescriptions);
-            leftDiv.textContent = JSON.stringify(codeBaseCar);
-            rightDiv.textContent = JSON.stringify(copyBaseCar.find(car => car.Precio < 600000))
+            clearDivs(leftDiv, rightDiv, divDescriptions)
+            leftDiv.textContent = JSON.stringify(codeBaseCar)
+            rightDiv.textContent = JSON.stringify(copyBaseCar.find(car => car.precio < 600000))
             divDescriptions.appendChild(contenido)
 
         }
         const findIndexArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
-            clearDivs(leftDiv, rightDiv, divDescriptions);
-            leftDiv.textContent = JSON.stringify(codeBaseCar);
-            rightDiv.textContent = JSON.stringify(copyBaseCar.findIndex(car => car.Precio < 600000))
+            clearDivs(leftDiv, rightDiv, divDescriptions)
+            leftDiv.textContent = JSON.stringify(codeBaseCar)
+            rightDiv.textContent = JSON.stringify(copyBaseCar.findIndex(car => car.precio < 600000))
             divDescriptions.appendChild(contenido)
 
         }
         const findLastArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
-            clearDivs(leftDiv, rightDiv, divDescriptions);
-            leftDiv.textContent = JSON.stringify(codeBaseCar);
-            rightDiv.textContent = JSON.stringify(copyBaseCar.findLast(car => car.Precio < 600000))
+            clearDivs(leftDiv, rightDiv, divDescriptions)
+            leftDiv.textContent = JSON.stringify(codeBaseCar)
+            rightDiv.textContent = JSON.stringify(copyBaseCar.findLast(car => car.precio < 600000))
             divDescriptions.appendChild(contenido)
         }
         const findLastIndexArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
-            clearDivs(leftDiv, rightDiv, divDescriptions);
-            leftDiv.textContent = JSON.stringify(codeBaseCar);
-            rightDiv.textContent = JSON.stringify(copyBaseCar.findLastIndex(car => car.Precio < 600000))
+            clearDivs(leftDiv, rightDiv, divDescriptions)
+            leftDiv.textContent = JSON.stringify(codeBaseCar)
+            rightDiv.textContent = JSON.stringify(copyBaseCar.findLastIndex(car => car.precio < 600000))
             divDescriptions.appendChild(contenido)
         }
-
         const flatArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
-            clearDivs(leftDiv, rightDiv, divDescriptions);
+            clearDivs(leftDiv, rightDiv, divDescriptions)
+            const copyBaseCar = codeBaseCar.map((obj) => [
+                obj.marca,
+                obj.modelo,
+                obj.precio,
+            ]);
+            leftDiv.textContent = JSON.stringify(codeBaseCar)
+            rightDiv.textContent = JSON.stringify(copyBaseCar.flat())
             divDescriptions.appendChild(contenido)
         }
         const flatMapArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
-            clearDivs(leftDiv, rightDiv, divDescriptions);
-            leftDiv.textContent = JSON.stringify(codeBaseCar);
-            rightDiv.textContent = JSON.stringify(copyBaseCar.flatMap(elemento => [[elemento.Marca, elemento.Modelo, elemento.Precio - (elemento.Precio * .50)]]))
+            clearDivs(leftDiv, rightDiv, divDescriptions)
+            leftDiv.textContent = JSON.stringify(codeBaseCar)
+            rightDiv.textContent = JSON.stringify(copyBaseCar.flatMap(elemento => [elemento.marca, elemento.modelo, elemento.precio - (elemento.precio * .50)]))
             divDescriptions.appendChild(contenido)
         }
         const forEachArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
-            clearDivs(leftDiv, rightDiv, divDescriptions);
-            leftDiv.textContent = JSON.stringify(codeBaseCar);
-            copyBaseCar.forEach(elemento => rightDiv.innerHTML += `El ${elemento.Marca} ${elemento.Modelo} el precio es de ${elemento.Precio} y con el descuento del 50% por el BUEN FIN es ${elemento.Precio - (elemento.Precio * .50)} <br> `)
+            clearDivs(leftDiv, rightDiv, divDescriptions)
+            leftDiv.textContent = JSON.stringify(codeBaseCar)
+            copyBaseCar.forEach(elemento => rightDiv.innerHTML += `El ${elemento.marca} ${elemento.modelo} el precio es de ${elemento.precio} y con el descuento del 50% por el BUEN FIN es ${elemento.precio - (elemento.precio * .50)} <br> `)
             divDescriptions.appendChild(contenido)
         }
+        const fromArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            clearDivs(leftDiv, rightDiv, divDescriptions)
+            leftDiv.textContent = JSON.stringify(codeBaseCar)
+            rightDiv.textContent = JSON.stringify(Array.from(codeBaseCar, (x =>  x.marca.toUpperCase())))
+            divDescriptions.appendChild(contenido)
 
-        const fromArrayExample = () => { }
-        const includesArrayExample = () => { }
+         }
+        const includesArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            clearDivs(leftDiv, rightDiv, divDescriptions)
+            leftDiv.textContent = JSON.stringify(codeBaseCar)
+            rightDiv.textContent = JSON.stringify((Array.from(codeBaseCar, (x =>  x.marca))).includes('Chevrolet'))
+            divDescriptions.appendChild(contenido)
+         }
         const indexOfArrayExample = () => { }
         const isArrayExample = () => { }
         const joinArrayExample = () => { }
@@ -192,76 +208,79 @@
                     {//entries
                         type: 'button',
                         textContent: 'entries',
-                        description: 'El método <strong>entries</strong> nos retorna un nuevo objeto con los valores del array MAS la posición, el codigo quedaria de la siguiente manera: <br> <br><strong>var iterator = codeBaseCar.entries()<br>for (let e of iterator) {<br>rightDiv.textContent += JSON.stringify(e)<br>;}</strong>',
+                        description: 'El método <strong>entries</strong> nos retorna un nuevo objeto con los valores del array MAS la posición, el codigo quedaria de la siguiente manera: <br> <br><strong>var iterator = codeBaseCar.entries()<br>for (let e of iterator) {<br>rightDiv.textContent += JSON.stringify(e)<br>}</strong>',
                         showCode: entriesArrayExample,
                     },
                     {//every
                         type: 'button',
                         textContent: 'every',
-                        description: 'El método <strong>Every</strong> nos manda un true o false si la condicion se cumple o no. Evalua todos los elementos del arreglo pero con que uno NO cumpla la condición arrojara un <strong>FALSE</strong>, todos los elementos deben cumplir con la condición para ser <strong>TRUE</strong>, Por ejemplo en el objeto de arriba tiene un elemento precio, si buscamos los mayores de 600000 solo cumplen dos de los 4 elementos, entonces arrojara un FALSE.<br> El codigo quedaria de la siguiente manera: <br><br> <strong>codeBaseCar.every(elemento => elemento.Precio < 600000)</strong>',
+                        description: 'El método <strong>Every</strong> nos manda un true o false si la condicion se cumple o no. Evalua todos los elementos del arreglo pero con que uno NO cumpla la condición arrojara un <strong>FALSE</strong>, todos los elementos deben cumplir con la condición para ser <strong>TRUE</strong>, Por ejemplo en el objeto de arriba tiene un elemento precio, si buscamos los mayores de 600000 solo cumplen dos de los 4 elementos, entonces arrojara un FALSE.<br> El codigo quedaria de la siguiente manera: <br><br> <strong>codeBaseCar.every(elemento => elemento.precio < 600000)</strong>',
                         showCode: everyArrayExample,
                     },
                     {//fill
                         type: 'button',
                         textContent: 'fill',
-                        description: "Este método permite cambiar los valores del array utilizando 3 parametros los cuales son:<br> <strong>* Primer parametro:</strong> indica el valor que desean agregar al nuevo arreglo<br> <strong>* Segundo Parametro:</strong> Desde la posición que inicia el cambio del nuevo valor (parametro 1) <br> <strong>* Tercer Parametro: </strong> hasta donde finaliza el cambio del valor y si no es agregado el valor por default sera la longitud del arreglo<br><br>copyBaseCar.fill({Marca: 'Chevrolet', Modelo:'Onix', Precio:'130000'},2,4)",
+                        description: 'Este método permite cambiar los valores del array utilizando 3 parametros los cuales son:<br> <strong>* Primer parametro:</strong> indica el valor que desean agregar al nuevo arreglo<br> <strong>* Segundo Parametro:</strong> Desde la posición que inicia el cambio del nuevo valor (parametro 1) <br> <strong>* Tercer Parametro: </strong> hasta donde finaliza el cambio del valor y si no es agregado el valor por default sera la longitud del arreglo<br><br>copyBaseCar.fill({marca: "Chevrolet", modelo:"Onix", precio:"130000"},2,4)',
                         showCode: fillArrayExample,
                     },
                     {//filter
                         type: 'button',
                         textContent: 'filter',
-                        description: '<strong>Filter</strong> nos permite generar un nuevo array a partir de una condición, esto quiere decir que los elementos que cumplen la condición seran parte del nuevo array. Por ejemplo si quiero un arreglo con los autos que el precio es mayor a 600000: <br><br><strong>copyBaseCar.filter(car => car.Precio > 600000)</strong>',
+                        description: '<strong>Filter</strong> nos permite generar un nuevo array a partir de una condición, esto quiere decir que los elementos que cumplen la condición seran parte del nuevo array. Por ejemplo si quiero un arreglo con los autos que el precio es mayor a 600000: <br><br><strong>copyBaseCar.filter(car => car.precio > 600000)</strong>',
                         showCode: filterArrayExample,
                     },
                     {//find
                         type: 'button',
                         textContent: 'find',
-                        description: 'El método <strong>Find</strong> busca el <strong>PRIMER</strong> elemento que cumple la condición. El código seria de la siguiente manera:<br><br> <strong>copyBaseCar.find(car => car.Precio < 600000)</strong>',
+                        description: 'El método <strong>Find</strong> busca el <strong>PRIMER</strong> elemento que cumple la condición. El código seria de la siguiente manera:<br><br> <strong>copyBaseCar.find(car => car.precio < 600000)</strong>',
                         showCode: findArrayExample,
                     },
                     {//findIndex
                         type: 'button',
                         textContent: 'findIndex',
-                        description: 'Este método actua igual que el find, pero en vez de mostrar el valor, ahora muestra el index o posición de donde se encuenta el valor que cumple la condición, usando el ejemplo de find ahora usaremos <strong>findIndex</strong> <br><em>Nota: El conteo inica desde 0. </em> <br><br>El código quedaria de la siguiente manera: <strong>copyBaseCar.findIndex(car => car.Precio < 600000)</strong>',
+                        description: 'Este método actua igual que el find, pero en vez de mostrar el valor, ahora muestra el index o posición de donde se encuenta el valor que cumple la condición, usando el ejemplo de find ahora usaremos <strong>findIndex</strong> <br><em>Nota: El conteo inica desde 0. </em> <br><br>El código quedaria de la siguiente manera: <strong>copyBaseCar.findIndex(car => car.precio < 600000)</strong>',
                         showCode: findIndexArrayExample,
                     },
                     {//findLast
                         type: 'button',
                         textContent: 'findLast',
-                        description: 'El método <strong>FindLast</strong> busca el <strong>ULTIMO</strong> elemento que cumple la condición. El código seria de la siguiente manera:<br><br> <strong>copyBaseCar.findLast(car => car.Precio < 600000)</strong>',
+                        description: 'El método <strong>FindLast</strong> busca el <strong>ULTIMO</strong> elemento que cumple la condición. El código seria de la siguiente manera:<br><br> <strong>copyBaseCar.findLast(car => car.precio < 600000)</strong>',
                         showCode: findLastArrayExample,
                     },
                     {//findLastIndex
                         type: 'button',
                         textContent: 'findLastIndex',
-                        description: "Este método actua igual que el findLast, pero en vez de mostrar el valor, ahora muestra el index o posición de donde se encuenta el valor que cumple la condición, usando el ejemplo de findLast ahora usaremos <strong>findLastIndex</strong> <br><em>Nota: El conteo inica desde 0. </em> <br><br>El código quedaria de la siguiente manera: <strong>copyBaseCar.findLastIndex(car => car.Precio < 600000)</strong>",
+                        description: 'Este método actua igual que el findLast, pero en vez de mostrar el valor, ahora muestra el index o posición de donde se encuenta el valor que cumple la condición, usando el ejemplo de findLast ahora usaremos <strong>findLastIndex</strong> <br><em>Nota: El conteo inica desde 0. </em> <br><br>El código quedaria de la siguiente manera: <strong>copyBaseCar.findLastIndex(car => car.precio < 600000)</strong>',
                         showCode: findLastIndexArrayExample,
                     },
-                    {
+                    {//flat
                         type: 'button',
                         textContent: 'flat',
-                        description: '...',
+                        description: 'Este método crea un nuevo array, nos ayuda a "desenvolver" o aplanar un array que tiene arrays concatenados, recibe un parametro y nos permitira indicar la "profundidad" o el "nivel" al que queremos aplanar, en el ejemplo del array de objetos, primero debemos convertirlo a array de arrays, para eso usaremos el método map: <br> <strong> const copyBaseCar = codeBaseCar.map((obj) => [<br>obj.marca,<br>obj.modelo,<br>obj.precio,<br>]);</strong><br> Una vez convertido en un array de arrays, usaremos el flat<br><strong>copyBaseCar.flat()</strong>',
                         showCode: flatArrayExample,
                     },
-                    {
+                    {//flatMap
                         type: 'button',
                         textContent: 'flatMap',
+                        description:'El <strong>flatMap</strong> actua como en el ejemplo del flat, que usamos map y ñuego flat, aqui no es necesario ya que el flatMap, tiene lo "mejor de ambos mundos" primero realiza el mapeo y luego aplana el resultado; por ejemplo: <br><strong>copyBaseCar.flatMap(elemento => [elemento.marca, elemento.modelo, elemento.precio - (elemento.precio * .50)])</strong> ',
                         showCode: flatMapArrayExample,
                     },
                     {//forEach
                         type: 'button',
                         textContent: 'forEach',
-                        description: '<strong>forEach: </strong> recorre cada elemento del array, y podemos realizar una operación o una tarea para cada elemento, por ejemplo en el array de autos, vamos aplicar el 50% de descuento al precio, el codigo quedaria de la siguiente manera <br><br> <strong>copyBaseCar.forEach(elemento=>  rightDiv.innerHTML += El ${elemento.Marca} ${elemento.Modelo} el precio es de ${elemento.Precio} y con el descuento del 50% por el BUEN FIN es ${elemento.Precio-(elemento.Precio*.50)}</strong>',
+                        description: '<strong>forEach: </strong> recorre cada elemento del array, y podemos realizar una operación o una tarea para cada elemento, por ejemplo en el array de autos, vamos aplicar el 50% de descuento al precio, el codigo quedaria de la siguiente manera <br><br> <strong>copyBaseCar.forEach(elemento=>  rightDiv.innerHTML += El ${elemento.marca} ${elemento.modelo} el precio es de ${elemento.precio} y con el descuento del 50% por el BUEN FIN es ${elemento.precio-(elemento.precio*.50)}</strong>',
                         showCode: forEachArrayExample,
                     },
-                    {
+                    {//from
                         type: 'button',
                         textContent: 'from',
+                        description: 'Este metodo nos dice que "crea una nueva instancia de array", recibe 3 parametros,<br> <strong>el primero:</strong> es un objeto o una matriz iterable <br> <strong>el segundo: </strong> es como la funcion map, realiza el mapeo de cada elemento.. por ejemplo si queremos ver los nombres en mayusculas de las marcas, hariamos lo siguiente:<br> <strong>Array.from(codeBaseCar, (x =>  x.marca.toUpperCase()))</strong>',
                         showCode: fromArrayExample,
                     },
-                    {
+                    {//includes
                         type: 'button',
                         textContent: 'includes',
+                        description:'<strong>Includes:</strong> es un metodo el cual nos arrojara un <strong>TRUE</strong> si la matriz incluye un determinado elemento o un <strong>FALSE </strong> si no esta incluido, por ejemplo: <br> Si quiero saber que <em>Chevrolet</em> es parte de mi array, pero el ejemplo que tenemos es un array de objetos, por lo tanto usaremos from para solo llamar las marcas y despues el includes: <br><br> <strong>(Array.from(codeBaseCar, (x =>  x.marca))).includes("Chevrolet")</strong>  ',
                         showCode: includesArrayExample,
                     },
                     {
@@ -376,34 +395,34 @@
         }
 
         const withDescription = (node, text) => {
-            const spanElement = createElement('span');
-            spanElement.innerHTML = text;
+            const spanElement = createElement('span')
+            spanElement.innerHTML = text
             node.appendChild(spanElement)
-            return node;
+            return node
         }
 
         const addEventListenerToNode = (structureButton, handler, left, right, buttonsDiv, divDescriptions) => {
             structureButton.nodo.addEventListener('click', (e) => {
-                handler(e, left, right, buttonsDiv, structureButton.message, divDescriptions);
-            });
-            return structureButton.nodo;
+                handler(e, left, right, buttonsDiv, structureButton.message, divDescriptions)
+            })
+            return structureButton.nodo
         }
 
         const createButtonsInContainer = (sectionsButton, buttonsDiv, leftDiv, rightDiv, divDescriptions) => {
             sectionsButton.forEach((structure, index) => {
                 structure.nodo = createElement(structure.type)
                 const { nodo, textContent, description, showCode } = structure
-                nodo.style.color = '#e7e7e7';
-                nodo.style.background = '#83939a';
-                nodo.style.padding = "10px";
+                nodo.style.color = '#e7e7e7'
+                nodo.style.background = '#83939a'
+                nodo.style.padding = '10px'
                 nodo.style.border = 'none'
                 nodo.style.width = '88px'
                 nodo.style.margin = '5px'
-                const containerForData = createElement('div');
+                const containerForData = createElement('div')
                 structure.message = withDescription(containerForData, description)
-                setTextContent(addEventListenerToNode(structure, showCode, leftDiv, rightDiv, buttonsDiv, divDescriptions), `${textContent} `);
-                buttonsDiv.appendChild(nodo);
-            });
+                setTextContent(addEventListenerToNode(structure, showCode, leftDiv, rightDiv, buttonsDiv, divDescriptions), `${textContent} `)
+                buttonsDiv.appendChild(nodo)
+            })
             return buttonsDiv
         }
 
@@ -444,9 +463,13 @@
             }
             nodo.style.fontFamily = 'monospace'
             nodo.style.fontSize = '19px'
-            document.body.appendChild(estructura[container].nodo);
+            document.body.appendChild(estructura[container].nodo)
         }
 
     </script>
+
+
+
 </body>
+
 </html>
