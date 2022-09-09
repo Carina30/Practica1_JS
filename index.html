@@ -141,30 +141,98 @@
         const fromArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
             clearDivs(leftDiv, rightDiv, divDescriptions)
             leftDiv.textContent = JSON.stringify(codeBaseCar)
-            rightDiv.textContent = JSON.stringify(Array.from(codeBaseCar, (x =>  x.marca.toUpperCase())))
+            rightDiv.textContent = JSON.stringify(Array.from(codeBaseCar, (x => x.marca.toUpperCase())))
             divDescriptions.appendChild(contenido)
 
-         }
+        }
         const includesArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
             clearDivs(leftDiv, rightDiv, divDescriptions)
             leftDiv.textContent = JSON.stringify(codeBaseCar)
-            rightDiv.textContent = JSON.stringify((Array.from(codeBaseCar, (x =>  x.marca))).includes('Chevrolet'))
+            rightDiv.textContent = JSON.stringify((Array.from(codeBaseCar, (x => x.marca))).includes('Chevrolet'))
             divDescriptions.appendChild(contenido)
-         }
-        const indexOfArrayExample = () => { }
-        const isArrayExample = () => { }
-        const joinArrayExample = () => { }
-        const keysArrayExample = () => { }
-        const lastIndexOfArrayExample = () => { }
-        const mapArrayExample = () => { }
-        const ofArrayExample = () => { }
-        const popArrayExample = () => { }
-        const pushArrayExample = () => { }
+        }
+        const indexOfArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            clearDivs(leftDiv, rightDiv, divDescriptions)
+            leftDiv.textContent = JSON.stringify(codeBaseCar.fill({ marca: "Chevrolet", modelo: "Onix", precio: "130000" }, 2, 4))
+            rightDiv.textContent = JSON.stringify(codeBaseCar.fill({ marca: "Chevrolet", modelo: "Onix", precio: "130000" }, 2, 4).map(car => car.marca).indexOf("Chevrolet"))
+            divDescriptions.appendChild(contenido)
+        }
+        const isArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            clearDivs(leftDiv, rightDiv, divDescriptions)
+            leftDiv.textContent = JSON.stringify(codeBaseCar)
+            rightDiv.textContent = JSON.stringify(Array.isArray(codeBaseCar))
+            divDescriptions.appendChild(contenido)
+        }
+        const joinArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            clearDivs(leftDiv, rightDiv, divDescriptions)
+            leftDiv.textContent = JSON.stringify(codeBaseCar)
+            rightDiv.textContent = JSON.stringify(codeBaseCar.flatMap(elemento => [elemento.marca, elemento.modelo, elemento.precio]).join())
+            divDescriptions.appendChild(contenido)
+        }
+
+        const keysArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            clearDivs(leftDiv, rightDiv, divDescriptions)
+            leftDiv.textContent = JSON.stringify(codeBaseCar)
+            var iterator = codeBaseCar.keys()
+            for (let e of iterator) {
+                rightDiv.textContent += JSON.stringify(e)
+            }
+            divDescriptions.appendChild(contenido)
+        }
+        const lastIndexOfArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            clearDivs(leftDiv, rightDiv, divDescriptions)
+            leftDiv.textContent = JSON.stringify(codeBaseCar.fill({ marca: "Chevrolet", modelo: "Onix", precio: "130000" }, 2, 4))
+            rightDiv.textContent = JSON.stringify(codeBaseCar.fill({ marca: "Chevrolet", modelo: "Onix", precio: "130000" }, 2, 4).map(car => car.marca).lastIndexOf("Chevrolet"))
+            divDescriptions.appendChild(contenido)
+        }
+
+        const mapArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            clearDivs(leftDiv, rightDiv, divDescriptions)
+            leftDiv.textContent = JSON.stringify(codeBaseCar)
+            rightDiv.innerHTML+= JSON.stringify(codeBaseCar.map(function (elemento) {
+                return `${elemento.marca}-${elemento.modelo} `
+            }))
+            divDescriptions.appendChild(contenido)
+        }
+
+        const ofArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            clearDivs(leftDiv, rightDiv, divDescriptions)
+            leftDiv.textContent = `Array.of("Camion","Camioneta", "Autobus", "Tren", "Bici")`
+            rightDiv.textContent = JSON.stringify(Array.of("Camion", "Camioneta", "Autobus", "Tren", "Bici"))
+            divDescriptions.appendChild(contenido)
+        }
+        const popArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            clearDivs(leftDiv, rightDiv, divDescriptions)
+            leftDiv.textContent = JSON.stringify(codeBaseCar)
+            rightDiv.textContent = `El elemento eliminado es: ${JSON.stringify(copyBaseCar.pop())}, entonces nuestro arreglo quedaria: ${JSON.stringify(copyBaseCar)}`
+            divDescriptions.appendChild(contenido)
+        }
+        const pushArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            clearDivs(leftDiv, rightDiv, divDescriptions)
+            leftDiv.textContent = JSON.stringify(codeBaseCar)
+            rightDiv.textContent = `El resultado del codigo push muestra: ${JSON.stringify(copyBaseCar.push({ marca: 'Mazda', modelo: 'Mazda 2 Hatchback Carbon Edition MHEV', precio: '363900' }))}, entonces nuestro arreglo quedaria: ${JSON.stringify(copyBaseCar)}`
+            divDescriptions.appendChild(contenido)
+        }
         const reduceArrayExample = () => { }
         const reduceRightArrayExample = () => { }
-        const reverseArrayExample = () => { }
-        const shiftArrayExample = () => { }
-        const sliceArrayExample = () => { }
+        const reverseArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            clearDivs(leftDiv, rightDiv, divDescriptions)
+            leftDiv.textContent = JSON.stringify(codeBaseCar)
+            rightDiv.textContent = JSON.stringify(copyBaseCar.reverse())
+            divDescriptions.appendChild(contenido)
+        }
+        const shiftArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            clearDivs(leftDiv, rightDiv, divDescriptions)
+            leftDiv.textContent = JSON.stringify(codeBaseCar)
+            rightDiv.textContent = `El elemento eliminado es: ${JSON.stringify(copyBaseCar.shift())}, entonces nuestro arreglo quedaria: ${JSON.stringify(copyBaseCar)}`
+            divDescriptions.appendChild(contenido)
+        }
+        const sliceArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            clearDivs(leftDiv, rightDiv, divDescriptions)
+            leftDiv.textContent = JSON.stringify(codeBaseCar)
+            rightDiv.textContent = JSON.stringify(copyBaseCar.slice(2, 4))
+            divDescriptions.appendChild(contenido)
+        }
         const someArrayExample = () => { }
         const sortArrayExample = () => { }
         const spliceArrayExample = () => { }
@@ -262,7 +330,7 @@
                     {//flatMap
                         type: 'button',
                         textContent: 'flatMap',
-                        description:'El <strong>flatMap</strong> actua como en el ejemplo del flat, que usamos map y ñuego flat, aqui no es necesario ya que el flatMap, tiene lo "mejor de ambos mundos" primero realiza el mapeo y luego aplana el resultado; por ejemplo: <br><strong>copyBaseCar.flatMap(elemento => [elemento.marca, elemento.modelo, elemento.precio - (elemento.precio * .50)])</strong> ',
+                        description: 'El <strong>flatMap</strong> actua como en el ejemplo del flat, que usamos map y ñuego flat, aqui no es necesario ya que el flatMap, tiene lo "mejor de ambos mundos" primero realiza el mapeo y luego aplana el resultado; por ejemplo: <br><strong>copyBaseCar.flatMap(elemento => [elemento.marca, elemento.modelo, elemento.precio - (elemento.precio * .50)])</strong> ',
                         showCode: flatMapArrayExample,
                     },
                     {//forEach
@@ -280,52 +348,61 @@
                     {//includes
                         type: 'button',
                         textContent: 'includes',
-                        description:'<strong>Includes:</strong> es un metodo el cual nos arrojara un <strong>TRUE</strong> si la matriz incluye un determinado elemento o un <strong>FALSE </strong> si no esta incluido, por ejemplo: <br> Si quiero saber que <em>Chevrolet</em> es parte de mi array, pero el ejemplo que tenemos es un array de objetos, por lo tanto usaremos from para solo llamar las marcas y despues el includes: <br><br> <strong>(Array.from(codeBaseCar, (x =>  x.marca))).includes("Chevrolet")</strong>  ',
+                        description: '<strong>Includes:</strong> es un metodo el cual nos arrojara un <strong>TRUE</strong> si la matriz incluye un determinado elemento o un <strong>FALSE </strong> si no esta incluido, por ejemplo: <br> Si quiero saber que <em>Chevrolet</em> es parte de mi array, pero el ejemplo que tenemos es un array de objetos, por lo tanto usaremos from para solo llamar las marcas y despues el includes: <br><br> <strong>(Array.from(codeBaseCar, (x =>  x.marca))).includes("Chevrolet")</strong>  ',
                         showCode: includesArrayExample,
                     },
-                    {
+                    {//indexOf
                         type: 'button',
                         textContent: 'indexOf',
+                        description: 'El indexOf actua parecido al método at solo que en vez de mandar la posición para obtener el contenido, ahora se ingresa el contenido para obtener la posición, en nuestro ejemplo del array de objetos, no podemos utilizar el indexOf sin la ayuda de otro método, en este ejemplo usaremos a map para realizar el recorrido en cada elemento y despues el indexOf para buscar <strong>Chevrolet</strong>: <br><strong>codeBaseCar.map(producto => producto.marca).indexOf("Chevrolet")</strong> <br> <em>Nota: si el contenido se repite en más de una ocasión solo muestra la posición del primero</em>',
                         showCode: indexOfArrayExample,
                     },
-                    {
+                    {//isArray
                         type: 'button',
                         textContent: 'isArray',
+                        description: 'Este es uno de los métodos que te arroja TRUE o FALSE.<br> y, ¿Cuando sera true?, cuando evalue que el objeto es un array y si no sera FALSE, por ejemplo: <br><strong>Array.isArray(codeBaseCar)</strong> <em>Obviamente nos mostrara un True porque cumple que es un array</em>',
                         showCode: isArrayExample,
                     },
-                    {
+                    {//join
                         type: 'button',
                         textContent: 'join',
+                        description: 'El método <strong>join</strong> son como el at, el indexOf, que es necesario que sea un array o un array de arrays, en este ejemplo vemos que es un array de objetos y no podremos usar el JOIN, como su nombre lo dice, me crea una union entre todos los elementos del array <br> Para este ejemplo usaremos el flatMap = <strong>codeBaseCar.flatMap(elemento => [elemento.marca, elemento.modelo, elemento.precio]).join()</strong>',
                         showCode: joinArrayExample,
                     },
-                    {
+                    {//keys
                         type: 'button',
                         textContent: 'keys',
+                        description: '<strong>Keys: </strong> es muy parecido a entries por la sintaxis, pero en vez de que regrese el index y valor, este solo regresa el index, por ejemplo: <br><strong>var iterator = codeBaseCar.keys()<br>for (let e of iterator) {<br>rightDiv.textContent += JSON.stringify(e)<br>}</strong>',
                         showCode: keysArrayExample,
                     },
-                    {
+                    {//lastIndexOf
                         type: 'button',
                         textContent: 'lastIndexOf',
+                        description: 'El método <strong>lastIndexOf</strong> actua igual que el indexOf, la unica diferencia, es:  como si buscara de atras para adelante, por ejemplo si el elemento se repite 3 veces, te mostrara la posición del ultimo: <br><strong>codeBaseCar.map(producto => producto.marca).indexOf("Chevrolet")</strong> <br><br><em>Estamos utilizando el mismo ejemplo de indexOf, para mostrar la diferencia de lo que muestra de resultado</em>  ',
                         showCode: lastIndexOfArrayExample,
                     },
-                    {
+                    {//map
                         type: 'button',
                         textContent: 'map',
+                        description: 'Recuerdan en la escuela cuando nos enseñaron el for ?, teniamos que inicializar i=0, seguido de una condición que indicaba hasta donde queriamos que finalizara el ciclo y despues el incremento, y ya adentro del for haciamos operaciones para cada elemento del array, pues el <strong>MAP</strong> hace lo mismo, interctua con cada elemento del array y realiza una operación y termina hasta pasar por el ultimo elemento del array <br> El código quedaria de la siguiente manera: <strong>   codeBaseCar.map(function (elemento) { return `${elemento.marca}-${elemento.modelo} `})</strong>',
                         showCode: mapArrayExample,
                     },
-                    {
+                    {//of
                         type: 'button',
                         textContent: 'of',
+                        description: 'Este método genera una nueva instancia Array, en los argumentos podemos pasarle cualquier valor ya sea numerico o string seguido de una coma, por ejemplo: <br><strong>Array.of("Camion","Camioneta", "Autobus", "Tren", "Bici")</strong> y asi generaremos un nuevo array.',
                         showCode: ofArrayExample,
                     },
-                    {
+                    {//pop
                         type: 'button',
                         textContent: 'pop',
+                        description: '<strong>Pop: </strong> nos permitira eliminar el ultimo elemento del array, este método es mutable, debido que cambia su estado original <br> Al escribir el siguiente codigo <strong>codeBaseCar.pop()</strong> nos mostrara el elemento que eliminamos',
                         showCode: popArrayExample,
                     },
-                    {
+                    {//push
                         type: 'button',
                         textContent: 'push',
+                        description: 'El método <strong>Push: </strong> nos permite agregar un nuevo elemento al final del array, PERO el push nos imprime un número, y es la longitud del arreglo modificado, por ejemplo el resultado del siguiente codigo:<br><strong>copyBaseCar.push({marca:"Mazda", modelo: "Mazda 2 Hatchback Carbon Edition MHEV", precio:"363900"})</strong> sera un 5, porque el arreglo original tenia 4 elementos',
                         showCode: pushArrayExample,
                     },
                     {
@@ -338,19 +415,22 @@
                         textContent: 'reduceRight',
                         showCode: reduceRightArrayExample,
                     },
-                    {
+                    { //reverse
                         type: 'button',
                         textContent: 'reverse',
+                        description: '<strong>Reverse: </strong> como su nombre lo dice, es como si vieras el arreglo al reverso o es como si el método girara 180° al arreglo, el código quedaria asi: <br><strong>codeBaseCar.reverse()</strong>',
                         showCode: reverseArrayExample,
                     },
-                    {
+                    {//shift
                         type: 'button',
                         textContent: 'shift',
+                        description: 'En el método Pop descubrimos que nos permite eliminar el ultimo elemento del arreglo, pero ahora si necesitamos eliminar el primer elemento, que se hace ?<br> Y la solución es: <strong>SHIFT</strong>. <br> El código quedaria de la siguiente manera: <strong><em>codeBaseCar.shift()</em></strong>',
                         showCode: shiftArrayExample,
                     },
                     {
                         type: 'button',
                         textContent: 'slice',
+                        description: 'Genera un nuevo array a partir de unos parametros. Los parametros indican el inicio y el fin de los elementos que se mostraran y los demas los "corta" o "mocha" del arreglo <br> Por ejemplo si quiero mostrar los ultimos dos arreglos del array, usaria el siguiente codigo: <strong>copyBaseCar.slice(2,4)</strong> ',
                         showCode: sliceArrayExample,
                     },
                     {
