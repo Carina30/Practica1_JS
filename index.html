@@ -22,29 +22,29 @@
             {
                 marca: 'Alfa Romero',
                 modelo: 'Stelvio',
-                precio: '690000'
+                precio: 690000
             },
             {
                 marca: 'Cadillac',
                 modelo: 'ATS',
-                precio: '929500'
+                precio: 929500
             },
             {
                 marca: 'Audi',
                 modelo: 'A1',
-                precio: '534900'
+                precio: 534900
             },
             {
                 marca: 'Chevrolet',
                 modelo: 'Spark',
-                precio: '230000'
+                precio: 230000
             },
 
         ]
         const codeConcat = [{ marca: 'Bentley' }, { marca: 'Ford' }, { marca: 'Peugeot' }]
-        const copyBaseCar = [...codeBaseCar]
 
         const atArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            const copyBaseCar = [...codeBaseCar]
             clearDivs(leftDiv, rightDiv, divDescriptions)
             divDescriptions.appendChild(contenido)
             leftDiv.textContent = JSON.stringify(codeBaseCar)
@@ -57,6 +57,7 @@
             divDescriptions.appendChild(contenido)
         }
         const copyWithinArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            const copyBaseCar = [...codeBaseCar]
             clearDivs(leftDiv, rightDiv, divDescriptions)
             leftDiv.textContent = JSON.stringify(codeBaseCar)
             rightDiv.textContent = JSON.stringify(copyBaseCar.copyWithin(0, 1))
@@ -78,18 +79,21 @@
             divDescriptions.appendChild(contenido)
         }
         const fillArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            const copyBaseCar = [...codeBaseCar]
             clearDivs(leftDiv, rightDiv, divDescriptions)
             leftDiv.textContent = JSON.stringify(codeBaseCar)
             rightDiv.textContent = JSON.stringify(copyBaseCar.fill({ marca: 'Chevrolet', modelo: 'Onix', precio: '130000' }, 2, 4))
             divDescriptions.appendChild(contenido)
         }
         const filterArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            const copyBaseCar = [...codeBaseCar]
             clearDivs(leftDiv, rightDiv, divDescriptions)
             leftDiv.textContent = JSON.stringify(codeBaseCar)
             rightDiv.textContent = JSON.stringify(copyBaseCar.filter(car => car.precio > 600000))
             divDescriptions.appendChild(contenido)
         }
         const findArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            const copyBaseCar = [...codeBaseCar]
             clearDivs(leftDiv, rightDiv, divDescriptions)
             leftDiv.textContent = JSON.stringify(codeBaseCar)
             rightDiv.textContent = JSON.stringify(copyBaseCar.find(car => car.precio < 600000))
@@ -97,6 +101,7 @@
 
         }
         const findIndexArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            const copyBaseCar = [...codeBaseCar]
             clearDivs(leftDiv, rightDiv, divDescriptions)
             leftDiv.textContent = JSON.stringify(codeBaseCar)
             rightDiv.textContent = JSON.stringify(copyBaseCar.findIndex(car => car.precio < 600000))
@@ -104,12 +109,14 @@
 
         }
         const findLastArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            const copyBaseCar = [...codeBaseCar]
             clearDivs(leftDiv, rightDiv, divDescriptions)
             leftDiv.textContent = JSON.stringify(codeBaseCar)
             rightDiv.textContent = JSON.stringify(copyBaseCar.findLast(car => car.precio < 600000))
             divDescriptions.appendChild(contenido)
         }
         const findLastIndexArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            const copyBaseCar = [...codeBaseCar]
             clearDivs(leftDiv, rightDiv, divDescriptions)
             leftDiv.textContent = JSON.stringify(codeBaseCar)
             rightDiv.textContent = JSON.stringify(copyBaseCar.findLastIndex(car => car.precio < 600000))
@@ -117,22 +124,20 @@
         }
         const flatArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
             clearDivs(leftDiv, rightDiv, divDescriptions)
-            const copyBaseCar = codeBaseCar.map((obj) => [
-                obj.marca,
-                obj.modelo,
-                obj.precio,
-            ]);
+            copyBaseCar = codeBaseCar.map((obj) => [obj.marca, obj.modelo, obj.precio,]);
             leftDiv.textContent = JSON.stringify(codeBaseCar)
             rightDiv.textContent = JSON.stringify(copyBaseCar.flat())
             divDescriptions.appendChild(contenido)
         }
         const flatMapArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            const copyBaseCar = [...codeBaseCar]
             clearDivs(leftDiv, rightDiv, divDescriptions)
             leftDiv.textContent = JSON.stringify(codeBaseCar)
             rightDiv.textContent = JSON.stringify(copyBaseCar.flatMap(elemento => [elemento.marca, elemento.modelo, elemento.precio - (elemento.precio * .50)]))
             divDescriptions.appendChild(contenido)
         }
         const forEachArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            const copyBaseCar = [...codeBaseCar]
             clearDivs(leftDiv, rightDiv, divDescriptions)
             leftDiv.textContent = JSON.stringify(codeBaseCar)
             copyBaseCar.forEach(elemento => rightDiv.innerHTML += `El ${elemento.marca} ${elemento.modelo} el precio es de ${elemento.precio} y con el descuento del 50% por el BUEN FIN es ${elemento.precio - (elemento.precio * .50)} <br> `)
@@ -169,7 +174,6 @@
             rightDiv.textContent = JSON.stringify(codeBaseCar.flatMap(elemento => [elemento.marca, elemento.modelo, elemento.precio]).join())
             divDescriptions.appendChild(contenido)
         }
-
         const keysArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
             clearDivs(leftDiv, rightDiv, divDescriptions)
             leftDiv.textContent = JSON.stringify(codeBaseCar)
@@ -185,16 +189,14 @@
             rightDiv.textContent = JSON.stringify(codeBaseCar.fill({ marca: "Chevrolet", modelo: "Onix", precio: "130000" }, 2, 4).map(car => car.marca).lastIndexOf("Chevrolet"))
             divDescriptions.appendChild(contenido)
         }
-
         const mapArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
             clearDivs(leftDiv, rightDiv, divDescriptions)
             leftDiv.textContent = JSON.stringify(codeBaseCar)
-            rightDiv.innerHTML+= JSON.stringify(codeBaseCar.map(function (elemento) {
+            rightDiv.innerHTML += JSON.stringify(codeBaseCar.map(function (elemento) {
                 return `${elemento.marca}-${elemento.modelo} `
             }))
             divDescriptions.appendChild(contenido)
         }
-
         const ofArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
             clearDivs(leftDiv, rightDiv, divDescriptions)
             leftDiv.textContent = `Array.of("Camion","Camioneta", "Autobus", "Tren", "Bici")`
@@ -202,44 +204,103 @@
             divDescriptions.appendChild(contenido)
         }
         const popArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            const copyBaseCar = [...codeBaseCar]
             clearDivs(leftDiv, rightDiv, divDescriptions)
             leftDiv.textContent = JSON.stringify(codeBaseCar)
             rightDiv.textContent = `El elemento eliminado es: ${JSON.stringify(copyBaseCar.pop())}, entonces nuestro arreglo quedaria: ${JSON.stringify(copyBaseCar)}`
             divDescriptions.appendChild(contenido)
         }
         const pushArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            const copyBaseCar = [...codeBaseCar]
             clearDivs(leftDiv, rightDiv, divDescriptions)
             leftDiv.textContent = JSON.stringify(codeBaseCar)
-            rightDiv.textContent = `El resultado del codigo push muestra: ${JSON.stringify(copyBaseCar.push({ marca: 'Mazda', modelo: 'Mazda 2 Hatchback Carbon Edition MHEV', precio: '363900' }))}, entonces nuestro arreglo quedaria: ${JSON.stringify(copyBaseCar)}`
+            rightDiv.innerHTML = `El resultado del codigo push muestra:<strong> ${JSON.stringify(copyBaseCar.push({ marca: 'Mazda', modelo: 'Mazda 2 Hatchback Carbon Edition MHEV', precio: '363900' }))}</strong>, entonces nuestro arreglo final quedaria:<br><br> ${JSON.stringify(copyBaseCar)}`
             divDescriptions.appendChild(contenido)
         }
-        const reduceArrayExample = () => { }
-        const reduceRightArrayExample = () => { }
+        const reduceArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            const copyBaseCar = [...codeBaseCar]
+            clearDivs(leftDiv, rightDiv, divDescriptions)
+            leftDiv.textContent = JSON.stringify(codeBaseCar)
+            rightDiv.textContent = JSON.stringify(copyBaseCar.reduce((acc, item) => { return acc += item.precio }, 0))
+            divDescriptions.appendChild(contenido)
+        }
+        const reduceRightArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            const copyBaseCar = [...codeBaseCar]
+            clearDivs(leftDiv, rightDiv, divDescriptions)
+            leftDiv.textContent = JSON.stringify(codeBaseCar)
+            rightDiv.textContent = JSON.stringify(copyBaseCar.reduceRight((acc, item) => { return acc += item.precio }, 0))
+            divDescriptions.appendChild(contenido)
+        }
         const reverseArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            const copyBaseCar = [...codeBaseCar]
             clearDivs(leftDiv, rightDiv, divDescriptions)
             leftDiv.textContent = JSON.stringify(codeBaseCar)
             rightDiv.textContent = JSON.stringify(copyBaseCar.reverse())
             divDescriptions.appendChild(contenido)
         }
         const shiftArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            const copyBaseCar = [...codeBaseCar]
             clearDivs(leftDiv, rightDiv, divDescriptions)
             leftDiv.textContent = JSON.stringify(codeBaseCar)
             rightDiv.textContent = `El elemento eliminado es: ${JSON.stringify(copyBaseCar.shift())}, entonces nuestro arreglo quedaria: ${JSON.stringify(copyBaseCar)}`
             divDescriptions.appendChild(contenido)
         }
         const sliceArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            const copyBaseCar = [...codeBaseCar]
             clearDivs(leftDiv, rightDiv, divDescriptions)
             leftDiv.textContent = JSON.stringify(codeBaseCar)
             rightDiv.textContent = JSON.stringify(copyBaseCar.slice(2, 4))
             divDescriptions.appendChild(contenido)
         }
-        const someArrayExample = () => { }
-        const sortArrayExample = () => { }
-        const spliceArrayExample = () => { }
-        const toLocaleStringArrayExample = () => { }
-        const toStringArrayExample = () => { }
-        const unshiftArrayExample = () => { }
-        const valuesArrayExample = () => { }
+        const someArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            clearDivs(leftDiv, rightDiv, divDescriptions)
+            leftDiv.textContent = JSON.stringify(codeBaseCar)
+            rightDiv.textContent = codeBaseCar.some(elemento => elemento.precio < 600000)
+            divDescriptions.appendChild(contenido)
+        }
+        const sortArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            const copyBaseCar = [...codeBaseCar]
+            clearDivs(leftDiv, rightDiv, divDescriptions)
+            leftDiv.textContent = JSON.stringify(codeBaseCar)
+            rightDiv.textContent = JSON.stringify(codeBaseCar.sort((a, b) => { return a.precio - b.precio }))
+            divDescriptions.appendChild(contenido)
+        }
+        const spliceArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            const copyBaseCar = [...codeBaseCar]
+            clearDivs(leftDiv, rightDiv, divDescriptions)
+            leftDiv.textContent = JSON.stringify(codeBaseCar)
+            rightDiv.innerHTML = `Los elementos eliminados son: <strong>${JSON.stringify(copyBaseCar.splice(2, 1, { marca: 'VW', modelo: 'Taos' }, { marca: 'BMW', modelo: 'serie1' }))}</strong><br><br>El arreglo quedaria de la siguiente manera: ${JSON.stringify(copyBaseCar)} `,
+                divDescriptions.appendChild(contenido)
+        }
+        const toLocaleStringArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            clearDivs(leftDiv, rightDiv, divDescriptions)
+            const copyBaseCar = [...codeBaseCar]
+            leftDiv.textContent = JSON.stringify(codeBaseCar)
+            rightDiv.textContent = JSON.stringify(copyBaseCar.flatMap(elemento => [elemento.marca, elemento.modelo, elemento.precio]).toLocaleString())
+            divDescriptions.appendChild(contenido)
+        }
+        const toStringArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            clearDivs(leftDiv, rightDiv, divDescriptions)
+            leftDiv.textContent = JSON.stringify(codeBaseCar)
+            rightDiv.textContent = JSON.stringify(codeBaseCar.flatMap(elemento => [elemento.marca, elemento.modelo, elemento.precio]).toString())
+            divDescriptions.appendChild(contenido)
+        }
+        const unshiftArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            const copyBaseCar = [...codeBaseCar]
+            clearDivs(leftDiv, rightDiv, divDescriptions)
+            leftDiv.textContent = JSON.stringify(codeBaseCar)
+            rightDiv.innerHTML = `El resultado del codigo unshift muestra:<strong> ${JSON.stringify(copyBaseCar.unshift({ marca: 'Mazda', modelo: 'Mazda 2 Hatchback Carbon Edition MHEV', precio: '363900' }))}</strong>, entonces nuestro arreglo final quedaria:<br><br> ${JSON.stringify(copyBaseCar)}`
+            divDescriptions.appendChild(contenido)
+        }
+        const valuesArrayExample = (e, leftDiv, rightDiv, buttonsDiv, contenido, divDescriptions) => {
+            clearDivs(leftDiv, rightDiv, divDescriptions)
+            leftDiv.textContent = JSON.stringify(codeBaseCar)
+            var iterator = codeBaseCar.values()
+            for (let e of iterator) {
+                rightDiv.innerHTML += `<br><br> ${JSON.stringify(e)}`
+            }
+            divDescriptions.appendChild(contenido)
+        }
 
         const estructura = {
             codeBaseLeft: {
@@ -405,14 +466,16 @@
                         description: 'El método <strong>Push: </strong> nos permite agregar un nuevo elemento al final del array, PERO el push nos imprime un número, y es la longitud del arreglo modificado, por ejemplo el resultado del siguiente codigo:<br><strong>copyBaseCar.push({marca:"Mazda", modelo: "Mazda 2 Hatchback Carbon Edition MHEV", precio:"363900"})</strong> sera un 5, porque el arreglo original tenia 4 elementos',
                         showCode: pushArrayExample,
                     },
-                    {
+                    {//reduce
                         type: 'button',
                         textContent: 'reduce',
+                        description: '<strong>Reduce: </strong> nos permitirá realizar operaciones y aplicarlas a cada uno de los elementos del array y al final nos devuelve un valor unico.<br> El reduce funciona de la siguiente manera:<br>Acepta dos parámetros:<br><br><strong>Primer parámetro: </strong> Es un callback, el cual también acepta los siguientes parámetros:<br>*acc <em>( Es el acumulador, como si fuera el total o el resultado final de la operación que se realiza en la funcion)</em><br>*item <em>(Elemento actual al cual se le realiza las operaciones de la función)</em><br>*index <em>(La posición del elemento actual)</em><br>*arr <em>(Referencia del arreglo que estamos iterando)</em><br><br><strong>Segundo parámetro: </strong> Es el valor inicial, en este parámetro existen dos posibilidades:<br><u>Primera Posibilidad:</u> <p style="color: #a8a8a8;">Si se provee el valor inicial entonces la primera vez que se llama la función el acumulador = valor inicial, el item es el valor del primer elemento del array, por ejemplo el index inicia con 0<p><br><u>Segunda posibilidad: </u> <p style="color: #a8a8a8;">De No escribir un valor inicial, entonces el acumulador inicia con el primer valor del array y el item con el segundo valor del array, por ejemplo en la primera entrada el index marcaria 1 porque esta en el segundo elemento del array (recordar que el conteo es desde 0)</p><br><em>Nota: es importante que en el arreglo del objetos como en nuestro ejemplo si lo inicialicemos porque de no ser así tomara todo el objeto sin especificarle que atributo debe tomar</em> .<br>Si quiero el total de todos los precios, el código quedaría de la siguiente manera:<br><strong> codeBaseCar.reduce((acc,item)=>{return acc +=item.precio},0)</strong>',
                         showCode: reduceArrayExample,
                     },
-                    {
+                    {//reduceRight
                         type: 'button',
                         textContent: 'reduceRight',
+                        description: '<strong>ReduceRight</strong> es casi lo mismo que reduce PERO, el arreglo no inicia con la primera posición sino con la ultima, el indice seria la longitud del arreglo-1 el item serie el valor de la ultima posición si es que se inicializa un valor, sino pasara lo mismo que en reduce se van a la penultima posición ',
                         showCode: reduceRightArrayExample,
                     },
                     { //reverse
@@ -427,45 +490,52 @@
                         description: 'En el método Pop descubrimos que nos permite eliminar el ultimo elemento del arreglo, pero ahora si necesitamos eliminar el primer elemento, que se hace ?<br> Y la solución es: <strong>SHIFT</strong>. <br> El código quedaria de la siguiente manera: <strong><em>codeBaseCar.shift()</em></strong>',
                         showCode: shiftArrayExample,
                     },
-                    {
+                    {//slice
                         type: 'button',
                         textContent: 'slice',
                         description: 'Genera un nuevo array a partir de unos parametros. Los parametros indican el inicio y el fin de los elementos que se mostraran y los demas los "corta" o "mocha" del arreglo <br> Por ejemplo si quiero mostrar los ultimos dos arreglos del array, usaria el siguiente codigo: <strong>copyBaseCar.slice(2,4)</strong> ',
                         showCode: sliceArrayExample,
                     },
-                    {
+                    {//some
                         type: 'button',
                         textContent: 'some',
+                        description: 'El método <strong>some</strong> es muy parecido al every, nos mostrara un True o un False, la diferencia es que en el every muestra un false si un elemento no cumple la condición pero el SOME si uno cumple la condición arroja un true <br> Usaremos el ejemplo de every el cual nos arrojo un FALSE: <br><strong> codeBaseCar.some(elemento => elemento.precio < 600000)</strong>',
                         showCode: someArrayExample,
                     },
-                    {
+                    {//sort
                         type: 'button',
                         textContent: 'sort',
+                        description: 'El método <strong>sort</strong> nos devuelve el arreglo ordenado, pero el orden no es estable debido que el ordenamiendo se base con UNICODE, por lo tanto realizaremos una funcion para comparar, debemos tener en cuenta que: <br> *a < b = -1 ( <strong>a</strong> se situara en un indice menor a <strong>b</strong>)<br>*a == b = 0 (no hay cambios)<br>*a > b = 1 (<strong>b</strong> se situara en un indice menor a <strong>a</strong>)<br>El codigo quedaria de la siguiente manera:<br><strong> codeBaseCar.sort((a,b)=>{return a.precio - b.precio})</strong>',
                         showCode: sortArrayExample,
                     },
-                    {
+                    {//splice
                         type: 'button',
                         textContent: 'splice',
+                        description: 'El método <strong>Splice</strong> siento que es una combinación de push con pop o unshift y shift. El splice permite eliminar elementos de un array (opcional) y tambien nos permite agregar elementos.<br>El splice recibe 3 parametros los cuales son:<br><br> <em>1.<strong>Primer parametro:</strong> Indica la posición en el cual se agregaran los nuevos elementos <br><br> 2.<strong>Segundo Parametro:</strong> Este número indica cuantos elementos se eliminan del array antiguo a partir numero del primer parametro, si el valor es 0, entonces ningun valor se eliminara.<br><br>3.<strong>Tercer parametro</strong> Se colocan los nuevos elementos, ya sea uno o más<br></em> <br>El código quedaria de la siguiente manera<br><strong>copyBaseCar.splice(2, 1, { marca:"VW",modelo:"Taos"},{marca:"BMW" , modelo:"serie1"})</strong><br><br> Nota: Lo que imprime el splice son los valores eliminados del arreglo, si no se eliminan regresa un array vacio',
                         showCode: spliceArrayExample,
                     },
                     {
                         type: 'button',
                         textContent: 'toLocaleString',
+                        description: 'El método <strong>toLocaleString</strong> nos devuelve una cadena de texto del array, es decir como si usaramos el método join.',
                         showCode: toLocaleStringArrayExample,
                     },
                     {
                         type: 'button',
                         textContent: 'toString',
+                        description: 'El método <strong>toString</strong> ',
                         showCode: toStringArrayExample,
                     },
-                    {
+                    {//unshift
                         type: 'button',
                         textContent: 'unshift',
+                        description: 'Recuerdan el método <strong>push</strong> nos permite agregar elementos nuevos al FINAL del array, pero que pasa si queremos agregarlos al INICIO del array ?, para eso esta <strong>unshift.</strong><br>Recordemos que el push y el unshift te muestra un número que es la longitud del nuevo array, entonces si queremos ver los cambios reflejados solo imprimamos el array, el código del unshift quedaria asi: <br><br><strong>copyBaseCar.unshift({marca:"Mazda", modelo: "Mazda 2 Hatchback Carbon Edition MHEV", precio:"363900"})</strong>',
                         showCode: unshiftArrayExample,
                     },
-                    {
+                    {//values
                         type: 'button',
                         textContent: 'values',
+                        description: 'Recuerdan el método <strong>Keys</strong> o el <strong>entries</strong> ?... <br> El método <strong>values</strong> puede usar la misma sintaxis de esos metodos, pero el values nos muestra el valor de cada indice del array<br> El código quedaria de la siguiente manera:<br><br><strong> var iterator = a.values();<br>for (let e of iterator) {<br>console.log(e);<br>}</strong>',
                         showCode: valuesArrayExample,
                     },
 
@@ -545,7 +615,6 @@
             nodo.style.fontSize = '19px'
             document.body.appendChild(estructura[container].nodo)
         }
-
     </script>
 
 
